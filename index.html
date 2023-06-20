@@ -1,0 +1,2551 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SEED Elephant Memory</title>
+</head>
+<body>
+    <h1>SEED Elephant Memory!</h1>
+
+    <form>
+
+        <!-- <button type="button" onclick="test()">test</button> -->
+
+        <label>
+            Words count:
+            <input type="radio" name="wordCount" value="12" checked>12
+            <input type="radio" name="wordCount" value="15">15
+            <input type="radio" name="wordCount" value="18">18
+            <input type="radio" name="wordCount" value="21">21
+            <input type="radio" name="wordCount" value="24">24
+        </label>
+
+        <br>
+        <br>
+        <label>
+            Language:
+            <select name="languageSelector">
+                <option value="english" selected>English</option>
+                <option value="russian">Русский</option>
+                <option value="french">French</option>
+            </select>
+        </label>
+
+        <br>
+
+    </form>
+
+
+
+<script id="data" type="text/csv">
+abandon;
+ability;способность
+able;способный
+about;о
+above;над
+absent;
+absorb;поглощать
+abstract;абстрактные
+absurd;абсурдный
+abuse;злоупотреблять
+access;доступ
+accident;авария
+account;счёт
+accuse;
+achieve;достигать
+acid;кислота
+acoustic;акустический
+acquire;приобретать
+across;
+act;действовать
+action;действие
+actor;актер
+actress;актриса
+actual;
+adapt;адаптировать
+add;добавлять
+addict;
+address;
+adjust;
+admit;
+adult;взрослый
+advance;
+advice;совет
+aerobic;аэробный
+affair;
+afford;
+afraid;
+again;
+age;возраст
+agent;агент
+agree;соглашаться
+ahead;
+aim;
+air;воздуха
+airport;
+aisle;
+alarm;
+album;альбом
+alcohol;алкоголь
+alert;
+alien;
+all;все
+alley;
+allow;разрешать
+almost;почти
+alone;
+alpha;альфа
+already;уже
+also;также
+alter;
+always;всегда
+amateur;любитель
+amazing;
+among;среди
+amount;количество
+amused;
+analyst;аналитик
+anchor;якорь
+ancient;древний
+anger;злость
+angle;
+angry;сердитый
+animal;животное
+ankle;лодыжка
+announce;объявить
+annual;ежегодный
+another;другой
+answer;
+antenna;антенна
+antique;античный
+anxiety;беспокойство
+any;любые
+apart;
+apology;извинение
+appear;появляться
+apple;яблоко
+approve;утвердить
+april;апрель
+arch;арка
+arctic;арктический
+area;
+arena;арена
+argue;спорить
+arm;
+armed;вооруженный
+armor;броня
+army;армия
+around;вокруг
+arrange;
+arrest;арестовывать
+arrive;прибыть
+arrow;стрелка
+art;искусство
+artefact;
+artist;художник
+artwork;
+ask;спросить
+aspect;аспект
+assault;
+asset;
+assist;
+assume;предполагать
+asthma;астма
+athlete;спортсмен
+atom;атом
+attack;атака
+attend;
+attitude;отношение
+attract;привлекать
+auction;аукцион
+audit;аудит
+august;август
+aunt;тетя
+author;автор
+auto;авто
+autumn;осень
+average;
+avocado;авокадо
+avoid;избегать
+awake;бодрствующий
+aware;осведомленный
+away;
+awesome;
+awful;
+awkward;
+axis;ось
+baby;детка
+bachelor;холостяк
+bacon;бекон
+badge;
+bag;мешок
+balance;
+balcony;балкон
+ball;мяч
+bamboo;бамбук
+banana;банан
+banner;баннер
+bar;бар
+barely;едва
+bargain;
+barrel;бочка
+base;основание
+basic;
+basket;корзина
+battle;
+beach;пляж
+bean;
+beauty;
+because;
+become;стали
+beef;говядина
+before;до
+begin;
+behave;
+behind;за
+believe;полагать
+below;ниже
+belt;пояс
+bench;скамья
+benefit;польза
+best;лучший
+betray;предавать
+better;
+between;между
+beyond;
+bicycle;
+bid;
+bike;
+bind;связывать
+biology;биология
+bird;птица
+birth;рождение
+bitter;горький
+black;чернить
+blade;лезвие
+blame;обвинять
+blanket;
+blast;
+bleak;
+bless;благословить
+blind;слепой
+blood;кровь
+blossom;цвести
+blouse;блузка
+blue;синий
+blur;размытие
+blush;краснеть
+board;доска
+boat;
+body;тело
+boil;кипятить
+bomb;бомбить
+bone;кость
+bonus;бонус
+book;книга
+boost;
+border;граница
+boring;скучный
+borrow;
+boss;босс
+bottom;низ
+bounce;подпрыгивать
+box;коробка
+boy;мальчик
+bracket;скобка
+brain;мозг
+brand;марка
+brass;латунь
+brave;храбрый
+bread;хлеб
+breeze;
+brick;кирпич
+bridge;мост
+brief;краткий
+bright;яркий
+bring;приносить
+brisk;бойкий
+broccoli;брокколи
+broken;сломанный
+bronze;бронза
+broom;метла
+brother;
+brown;коричневый
+brush;щетка
+bubble;пузырь
+buddy;приятель
+budget;бюджет
+buffalo;буйвол
+build;строить
+bulb;лампочка
+bulk;
+bullet;пуля
+bundle;пучок
+bunker;бункер
+burden;
+burger;бургер
+burst;лопаться
+bus;автобус
+business;бизнес
+busy;занятый
+butter;
+buyer;покупатель
+buzz;
+cabbage;капуста
+cabin;
+cable;кабель
+cactus;кактус
+cage;
+cake;торт
+call;вызов
+calm;
+camera;камера
+camp;лагерь
+can;могу
+canal;
+cancel;отмена
+candy;
+cannon;
+canoe;каноэ
+canvas;холст
+canyon;каньон
+capable;
+capital;столица
+captain;капитан
+car;
+carbon;углерод
+card;
+cargo;груз
+carpet;ковер
+carry;нести
+cart;тележка
+case;кейс
+cash;
+casino;казино
+castle;
+casual;
+cat;кот
+catalog;каталог
+catch;ловить
+category;категория
+cattle;
+caught;пойманный
+cause;причина
+caution;осторожность
+cave;пещера
+ceiling;потолок
+celery;сельдерей
+cement;цемент
+census;перепись
+century;век
+cereal;злак
+certain;
+chair;стул
+chalk;
+champion;чемпион
+change;сдача
+chaos;хаос
+chapter;глава
+charge;заряд
+chase;гнаться
+chat;чат
+cheap;дешевый
+check;проверьте
+cheese;сыр
+chef;
+cherry;вишня
+chest;
+chicken;
+chief;
+child;ребенок
+chimney;дымоход
+choice;выбор
+choose;
+chronic;хронический
+chuckle;посмеиваться
+chunk;
+churn;
+cigar;сигара
+cinnamon;корица
+circle;
+citizen;гражданин
+city;город
+civil;гражданский
+claim;
+clap;
+clarify;
+claw;коготь
+clay;глина
+clean;чистый
+clerk;клерк
+clever;
+click;нажмите
+client;
+cliff;утес
+climb;взбираться
+clinic;клиника
+clip;клип
+clock;часы
+clog;
+close;закрыть
+cloth;
+cloud;облако
+clown;клоун
+club;клуб
+clump;
+cluster;кластер
+clutch;
+coach;
+coast;побережье
+coconut;кокос
+code;
+coffee;кофе
+coil;катушка
+coin;монета
+collect;собирать
+color;
+column;столбец
+combine;комбинировать
+come;
+comfort;комфорт
+comic;комикс
+common;
+company;компания
+concert;концерт
+conduct;
+confirm;подтверждать
+congress;конгресс
+connect;
+consider;
+control;
+convince;убеждать
+cook;
+cool;
+copper;медь
+copy;копировать
+coral;коралл
+core;
+corn;кукуруза
+correct;
+cost;
+cotton;хлопок
+couch;
+country;
+couple;
+course;
+cousin;
+cover;
+coyote;койот
+crack;трескаться
+cradle;колыбель
+craft;ремесло
+cram;зубрить
+crane;
+crash;крушение
+crater;кратер
+crawl;ползти
+crazy;сумасшедший
+cream;крем
+credit;кредит
+creek;ручей
+crew;экипаж
+cricket;крикет
+crime;
+crisp;хрустящий
+critic;критик
+crop;
+cross;пересекать
+crouch;
+crowd;
+crucial;
+cruel;жестокий
+cruise;
+crumble;рассыпаться
+crunch;хруст
+crush;раздавить
+cry;плакать
+crystal;кристалл
+cube;куб
+culture;культура
+cup;
+cupboard;
+curious;любопытный
+current;текущий
+curtain;
+curve;
+cushion;
+custom;обычай
+cute;милый
+cycle;цикл
+dad;папа
+damage;
+damp;
+dance;танец
+danger;опасность
+daring;
+dash;
+daughter;дочь
+dawn;рассвет
+day;день
+deal;
+debate;дебаты
+debris;обломки
+decade;десятилетие
+december;декабрь
+decide;
+decline;
+decorate;украшать
+decrease;
+deer;олень
+defense;оборона
+define;
+defy;
+degree;степень
+delay;
+deliver;доставлять
+demand;
+demise;
+denial;
+dentist;
+deny;отрицать
+depart;отходить
+depend;зависеть
+deposit;депозит
+depth;глубина
+deputy;заместитель
+derive;
+describe;описывать
+desert;пустыня
+design;дизайн
+desk;
+despair;отчаяние
+destroy;разрушать
+detail;деталь
+detect;
+develop;развивать
+device;устройство
+devote;
+diagram;диаграмма
+dial;
+diamond;алмаз
+diary;дневник
+dice;
+diesel;дизель
+diet;диета
+differ;отличаться
+digital;цифровой
+dignity;достоинство
+dilemma;дилемма
+dinner;обед
+dinosaur;динозавр
+direct;непосредственный
+dirt;грязь
+disagree;
+discover;обнаружить
+disease;болезнь
+dish;блюдо
+dismiss;увольнять
+disorder;
+display;отображать
+distance;расстояние
+divert;
+divide;разделять
+divorce;
+dizzy;
+doctor;врач
+document;документ
+dog;собака
+doll;кукла
+dolphin;дельфин
+domain;домен
+donate;пожертвовать
+donkey;осел
+donor;донор
+door;
+dose;доза
+double;двойной
+dove;
+draft;
+dragon;
+drama;драма
+drastic;
+draw;рисовать
+dream;мечтать
+dress;
+drift;
+drill;сверлить
+drink;напиток
+drip;капать
+drive;
+drop;уронить
+drum;барабан
+dry;сухой
+duck;утка
+dumb;
+dune;дюна
+during;
+dust;пыли
+dutch;голландский
+duty;долг
+dwarf;карлик
+dynamic;динамичный
+eager;
+eagle;орел
+early;рано
+earn;зарабатывать
+earth;земля
+easily;
+east;восток
+easy;
+echo;эхо
+ecology;экология
+economy;экономика
+edge;край
+edit;редактировать
+educate;
+effort;
+egg;яйцо
+eight;восемь
+either;
+elbow;локоть
+elder;
+electric;электрический
+elegant;элегантный
+element;элемент
+elephant;слон
+elevator;лифт
+elite;элита
+else;
+embark;
+embody;
+embrace;объятие
+emerge;
+emotion;эмоция
+employ;
+empower;
+empty;пустой
+enable;
+enact;
+end;
+endless;бесконечный
+endorse;
+enemy;враг
+energy;энергия
+enforce;
+engage;
+engine;двигатель
+enhance;усилить
+enjoy;наслаждаться
+enlist;
+enough;довольно
+enrich;обогащать
+enroll;
+ensure;
+enter;входить
+entire;
+entry;
+envelope;конверт
+episode;эпизод
+equal;равный
+equip;оборудовать
+era;эпоха
+erase;стереть
+erode;
+erosion;эрозия
+error;
+erupt;извергаться
+escape;
+essay;
+essence;сущность
+estate;
+eternal;вечный
+ethics;этика
+evidence;
+evil;зло
+evoke;
+evolve;эволюционировать
+exact;
+example;пример
+excess;избыток
+exchange;обмен
+excite;возбуждать
+exclude;исключать
+excuse;
+execute;
+exercise;
+exhaust;выхлоп
+exhibit;экспонат
+exile;изгнание
+exist;существовать
+exit;
+exotic;экзотический
+expand;расширять
+expect;ожидать
+expire;
+explain;объяснять
+expose;разоблачать
+express;
+extend;
+extra;
+eye;глаз
+eyebrow;бровь
+fabric;
+face;лицо
+faculty;факультет
+fade;тускнеть
+faint;
+faith;
+fall;
+false;ложь
+fame;
+family;семья
+famous;известный
+fan;поклонник
+fancy;
+fantasy;фантазия
+farm;ферма
+fashion;мода
+fat;
+fatal;фатальный
+father;отец
+fatigue;усталость
+fault;
+favorite;
+feature;
+february;февраль
+federal;федеральный
+fee;
+feed;
+feel;чувствовать
+female;женщина
+fence;
+festival;
+fetch;
+fever;
+few;
+fiber;волокно
+fiction;
+field;поле
+figure;фигура
+file;файл
+film;
+filter;фильтр
+final;окончательный
+find;
+fine;
+finger;палец
+finish;
+fire;пожар
+firm;
+first;первый
+fiscal;фискальный
+fish;рыбы
+fit;
+fitness;фитнес
+fix;
+flag;флаг
+flame;пламя
+flash;вспышка
+flat;плоский
+flavor;
+flee;
+flight;полет
+flip;
+float;
+flock;
+floor;пол
+flower;цветок
+fluid;
+flush;промывать
+fly;летать
+foam;
+focus;фокус
+fog;туман
+foil;фольга
+fold;складывать
+follow;
+food;еда
+foot;стопа
+force;сила
+forest;лес
+forget;забывать
+fork;вилка
+fortune;
+forum;форум
+forward;вперед
+fossil;ископаемое
+foster;
+found;найденный
+fox;
+fragile;хрупкий
+frame;рамка
+frequent;частый
+fresh;свежий
+friend;друг
+fringe;бахрома
+frog;лягушка
+front;фронт
+frost;
+frown;
+frozen;замороженный
+fruit;
+fuel;топливо
+fun;
+funny;забавный
+furnace;
+fury;ярость
+future;будущее
+gadget;гаджет
+gain;
+galaxy;галактика
+gallery;галерея
+game;
+gap;зазор
+garage;гараж
+garbage;
+garden;сад
+garlic;чеснок
+garment;
+gas;газ
+gasp;
+gate;
+gather;
+gauge;
+gaze;
+general;генеральный
+genius;гений
+genre;жанр
+gentle;нежный
+genuine;
+gesture;жест
+ghost;призрак
+giant;гигант
+gift;
+giggle;хихикать
+ginger;имбирь
+giraffe;жирафа
+girl;девочка
+give;дайте
+glad;радостный
+glance;
+glare;
+glass;стекло
+glide;
+glimpse;
+globe;
+gloom;
+glory;слава
+glove;перчатка
+glow;
+glue;клей
+goat;козел
+goddess;богиня
+gold;золото
+good;
+goose;гусь
+gorilla;горилла
+gospel;евангелие
+gossip;
+govern;
+gown;
+grab;схватить
+grace;грейс
+grain;
+grant;грант
+grape;виноград
+grass;трава
+gravity;
+great;здорово
+green;зеленый
+grid;
+grief;горе
+grit;
+grocery;бакалея
+group;группа
+grow;расти
+grunt;ворчание
+guard;сторожить
+guess;угадать
+guide;гид
+guilt;вина
+guitar;гитара
+gun;пистолет
+gym;спортзал
+habit;привычка
+hair;волосы
+half;половина
+hammer;
+hamster;хомяк
+hand;рука
+happy;счастливый
+harbor;гавань
+hard;жесткий
+harsh;
+harvest;урожай
+hat;шляпа
+have;имеют
+hawk;ястреб
+hazard;
+head;голова
+health;здоровье
+heart;
+heavy;тяжелый
+hedgehog;еж
+height;высота
+hello;
+helmet;шлем
+help;помощь
+hen;курица
+hero;герой
+hidden;скрытый
+high;высоко
+hill;холм
+hint;намекать
+hip;бедро
+hire;
+history;
+hobby;хобби
+hockey;хоккей
+hold;
+hole;отверстие
+holiday;
+hollow;
+home;
+honey;медовый
+hood;капот
+hope;надеяться
+horn;рог
+horror;
+horse;лошадь
+hospital;больница
+host;
+hotel;отель
+hour;час
+hover;
+hub;
+huge;огромный
+human;человек
+humble;
+humor;юмор
+hundred;сто
+hungry;голодный
+hunt;охотиться
+hurdle;
+hurry;торопиться
+hurt;
+husband;муж
+hybrid;гибридный
+ice;лед
+icon;икона
+idea;идея
+identify;
+idle;праздный
+ignore;игнорировать
+ill;
+illegal;незаконный
+illness;
+image;изображение
+imitate;подражать
+immense;
+immune;иммунный
+impact;
+impose;навязывать
+improve;улучшать
+impulse;
+inch;дюйм
+include;включать
+income;доход
+increase;увеличивать
+index;
+indicate;указывать
+indoor;
+industry;промышленность
+infant;
+inflict;
+inform;
+inhale;вдохнуть
+inherit;наследовать
+initial;
+inject;
+injury;
+inmate;
+inner;
+innocent;невиновный
+input;
+inquiry;
+insane;безумный
+insect;насекомое
+inside;внутри
+inspire;вдохновлять
+install;установить
+intact;нетронутый
+interest;интерес
+into;
+invest;инвестировать
+invite;приглашать
+involve;вовлекать
+iron;железо
+island;остров
+isolate;изолировать
+issue;
+item;
+ivory;
+jacket;куртка
+jaguar;ягуар
+jar;банка
+jazz;джаз
+jealous;ревнивый
+jeans;джинсы
+jelly;желе
+jewel;драгоценность
+job;работа
+join;присоединиться
+joke;
+journey;
+joy;радость
+judge;судить
+juice;
+jump;прыгать
+jungle;джунгли
+junior;
+junk;
+just;
+kangaroo;кенгуру
+keen;
+keep;держать
+ketchup;кетчуп
+key;ключ
+kick;пинать
+kid;
+kidney;
+kind;добрый
+kingdom;царство
+kiss;целовать
+kit;
+kitchen;кухня
+kite;
+kitten;
+kiwi;киви
+knee;колено
+knife;нож
+knock;стучать
+know;знать
+lab;
+label;метка
+labor;
+ladder;
+lady;леди
+lake;озеро
+lamp;лампа
+language;язык
+laptop;
+large;большой
+later;
+latin;латинский
+laugh;смех
+laundry;прачечная
+lava;лава
+law;закон
+lawn;лужайка
+lawsuit;иск
+layer;слой
+lazy;ленивый
+leader;лидер
+leaf;
+learn;
+leave;покинуть
+lecture;лекция
+left;слева
+leg;нога
+legal;
+legend;легенда
+leisure;досуг
+lemon;лимон
+lend;
+length;длина
+lens;объектив
+leopard;леопард
+lesson;урок
+letter;письмо
+level;уровень
+liar;
+liberty;
+library;библиотека
+license;лицензия
+life;
+lift;
+light;светлый
+like;нравится
+limb;конечность
+limit;
+link;
+lion;
+liquid;жидкость
+list;список
+little;маленький
+live;жить
+lizard;ящерица
+load;нагрузка
+loan;заем
+lobster;омар
+local;местный
+lock;замок
+logic;
+lonely;одинокий
+long;длинный
+loop;
+lottery;лотерея
+loud;громкий
+lounge;
+love;
+loyal;лояльный
+lucky;
+luggage;
+lumber;пиломатериалы
+lunar;лунный
+lunch;
+luxury;роскошь
+lyrics;
+machine;
+mad;
+magic;магия
+magnet;магнит
+maid;служанка
+mail;почта
+main;главный
+major;
+make;делать
+mammal;млекопитающее
+man;
+manage;управлять
+mandate;мандат
+mango;манго
+mansion;особняк
+manual;
+maple;клен
+marble;мрамор
+march;март
+margin;
+marine;
+market;рынок
+marriage;брак
+mask;маска
+mass;
+master;мастер
+match;
+material;материал
+math;
+matrix;матрица
+matter;
+maximum;максимум
+maze;
+meadow;луг
+mean;
+measure;мера
+meat;мясо
+mechanic;механик
+medal;медаль
+media;
+melody;мелодия
+melt;плавиться
+member;член
+memory;
+mention;упомянуть
+menu;меню
+mercy;милосердие
+merge;сливаться
+merit;
+merry;
+mesh;
+message;сообщение
+metal;металл
+method;метод
+middle;середина
+midnight;полночь
+milk;молоко
+million;миллион
+mimic;
+mind;
+minimum;минимум
+minor;незначительный
+minute;минута
+miracle;чудо
+mirror;зеркало
+misery;
+miss;скучать
+mistake;ошибка
+mix;
+mixed;смешанный
+mixture;смесь
+mobile;мобильный
+model;модель
+modify;
+mom;
+moment;момент
+monitor;монитор
+monkey;обезьяна
+monster;монстр
+month;месяц
+moon;луна
+moral;моральный
+more;более
+morning;утро
+mosquito;комар
+mother;мама
+motion;движение
+motor;
+mountain;гора
+mouse;мышь
+move;
+movie;фильм
+much;
+muffin;
+mule;мул
+multiply;умножить
+muscle;мышца
+museum;музей
+mushroom;гриб
+music;музыка
+must;
+mutual;взаимный
+myself;сам
+mystery;
+myth;миф
+naive;наивный
+name;
+napkin;салфетка
+narrow;узкий
+nasty;противный
+nation;нация
+nature;природа
+near;около
+neck;шея
+need;необходимость
+negative;отрицательный
+neglect;
+neither;
+nephew;племянник
+nerve;нерв
+nest;гнездо
+net;
+network;сеть
+neutral;нейтральный
+never;никогда
+news;новости
+next;следующий
+nice;
+night;ночь
+noble;благородный
+noise;шум
+nominee;номинант
+noodle;
+normal;нормальный
+north;север
+nose;нос
+notable;
+note;примечание
+nothing;ничего
+notice;
+novel;роман
+now;теперь
+nuclear;ядерный
+number;
+nurse;медсестра
+nut;орех
+oak;дуб
+obey;подчиняться
+object;
+oblige;обязывать
+obscure;
+observe;наблюдать
+obtain;
+obvious;
+occur;
+ocean;океан
+october;октябрь
+odor;
+off;выключенный
+offer;предложение
+office;офис
+often;
+oil;
+okay;
+old;старый
+olive;оливковое
+olympic;олимпийский
+omit;
+once;однажды
+one;один
+onion;лук
+online;онлайн
+only;только
+open;открытым
+opera;опера
+opinion;мнение
+oppose;
+option;вариант
+orange;апельсин
+orbit;орбита
+orchard;
+order;порядок
+ordinary;
+organ;орган
+orient;
+original;оригинальный
+orphan;
+ostrich;страус
+other;другие
+outdoor;
+outer;
+output;выход
+outside;
+oval;овал
+oven;
+over;
+own;
+owner;владелец
+oxygen;кислород
+oyster;устрица
+ozone;озон
+pact;
+paddle;весло
+page;страница
+pair;пара
+palace;
+palm;пальма
+panda;панда
+panel;панель
+panic;паника
+panther;пантера
+paper;бумага
+parade;парад
+parent;родитель
+park;
+parrot;попугай
+party;вечеринка
+pass;проходят
+patch;пластырь
+path;
+patient;пациент
+patrol;патруль
+pattern;
+pause;пауза
+pave;проложить
+payment;оплата
+peace;
+peanut;арахис
+pear;груша
+peasant;крестьянин
+pelican;пеликан
+pen;ручка
+penalty;
+pencil;карандаш
+people;люди
+pepper;перец
+perfect;идеально
+permit;
+person;
+pet;
+phone;
+photo;
+phrase;фраза
+physical;физический
+piano;пианино
+picnic;пикник
+picture;
+piece;
+pig;свинья
+pigeon;голубь
+pill;
+pilot;пилот
+pink;розовый
+pioneer;пионер
+pipe;
+pistol;
+pitch;
+pizza;пицца
+place;место
+planet;планета
+plastic;пластик
+plate;пластина
+play;играть
+please;пожалуйста
+pledge;
+pluck;срывать
+plug;затыкать
+plunge;
+poem;стихотворение
+poet;поэт
+point;
+polar;полярный
+pole;
+police;полиция
+pond;пруд
+pony;пони
+pool;
+popular;популярный
+portion;
+position;позиция
+possible;
+post;
+potato;картошка
+pottery;
+poverty;бедность
+powder;пудра
+power;власть
+practice;
+praise;
+predict;предсказывать
+prefer;предпочитать
+prepare;подготовить
+present;
+pretty;
+prevent;
+price;цена
+pride;гордость
+primary;
+print;распечатать
+priority;
+prison;тюрьма
+private;частный
+prize;приз
+problem;проблема
+process;процесс
+produce;производить
+profit;
+program;программа
+project;проект
+promote;продвигать
+proof;доказательство
+property;свойство
+prosper;процветать
+protect;защищать
+proud;гордый
+provide;
+public;публичный
+pudding;пудинг
+pull;
+pulp;мякоть
+pulse;пульс
+pumpkin;тыква
+punch;
+pupil;
+puppy;щенок
+purchase;покупка
+purity;чистота
+purpose;
+purse;кошелек
+push;толкать
+put;помещать
+puzzle;головоломка
+pyramid;пирамида
+quality;
+quantum;квант
+quarter;четверть
+question;вопрос
+quick;
+quit;
+quiz;
+quote;цитировать
+rabbit;кролик
+raccoon;енот
+race;гонка
+rack;стойка
+radar;радар
+radio;радио
+rail;рельс
+rain;дождь
+raise;
+rally;митинг
+ramp;пандус
+ranch;ранчо
+random;случайный
+range;диапазон
+rapid;
+rare;редкий
+rate;
+rather;
+raven;
+raw;сырой
+razor;бритва
+ready;готов
+real;настоящий
+reason;
+rebel;бунтарь
+rebuild;
+recall;
+receive;получать
+recipe;
+record;
+recycle;рециркулировать
+reduce;уменьшать
+reflect;отражать
+reform;реформа
+refuse;отказаться
+region;регион
+regret;сожалеть
+regular;
+reject;отклонять
+relax;расслабляться
+release;выпуск
+relief;облегчение
+rely;полагаться
+remain;
+remember;помните
+remind;напоминать
+remove;
+render;оказывать
+renew;
+rent;арендовать
+reopen;
+repair;ремонт
+repeat;повторить
+replace;заменять
+report;отчет
+require;
+rescue;
+resemble;
+resist;
+resource;ресурс
+response;отклик
+result;результат
+retire;
+retreat;
+return;возврат
+reunion;воссоединение
+reveal;
+review;
+reward;награда
+rhythm;ритм
+rib;
+ribbon;лента
+rice;рис
+rich;богатый
+ride;
+ridge;хребет
+rifle;винтовка
+right;
+rigid;
+ring;звенеть
+riot;
+ripple;
+risk;риск
+ritual;ритуал
+rival;соперник
+river;река
+road;дорога
+roast;
+robot;робот
+robust;
+rocket;ракета
+romance;романтика
+roof;крыша
+rookie;новобранец
+room;номер
+rose;роза
+rotate;вращать
+rough;
+round;круглый
+route;маршрут
+royal;королевский
+rubber;
+rude;грубый
+rug;коврик
+rule;правило
+run;
+runway;
+rural;
+sad;печальный
+saddle;седло
+sadness;грусть
+safe;сейф
+sail;
+salad;салат
+salmon;лосось
+salon;салон
+salt;соль
+salute;
+same;
+sample;образец
+sand;песок
+satisfy;
+satoshi;сатоши
+sauce;соус
+sausage;колбаса
+save;спасти
+say;
+scale;шкала
+scan;
+scare;напугать
+scatter;разбрасывать
+scene;сцена
+scheme;схема
+school;школа
+science;
+scissors;ножницы
+scorpion;скорпион
+scout;разведчик
+scrap;лом
+screen;экран
+script;
+scrub;скраб
+sea;море
+search;поиск
+season;
+seat;сиденье
+second;второй
+secret;секрет
+section;
+security;безопасность
+seed;семя
+seek;стремиться
+segment;сегмент
+select;
+sell;продавать
+seminar;семинар
+senior;старший
+sense;
+sentence;
+series;
+service;услуга
+session;сеанс
+settle;
+setup;
+seven;семь
+shadow;тень
+shaft;вал
+shallow;
+share;поделиться
+shed;пролить
+shell;ракушка
+sheriff;шериф
+shield;щит
+shift;сдвиг
+shine;светить
+ship;
+shiver;дрожь
+shock;шок
+shoe;
+shoot;
+shop;
+short;короткая
+shoulder;плечо
+shove;пихать
+shrimp;креветка
+shrug;
+shuffle;
+shy;застенчивый
+sibling;
+sick;больной
+side;сторона
+siege;осада
+sight;достопримечательность
+sign;знак
+silent;
+silk;шелк
+silly;глупый
+silver;серебряный
+similar;похожий
+simple;
+since;
+sing;петь
+siren;сирена
+sister;сестра
+situate;
+six;шесть
+size;
+skate;
+sketch;эскиз
+ski;
+skill;навык
+skin;
+skirt;юбка
+skull;
+slab;
+slam;
+sleep;спать
+slender;
+slice;
+slide;горка
+slight;
+slim;
+slogan;лозунг
+slot;слот
+slow;медленный
+slush;слякоть
+small;небольшой
+smart;умная
+smile;улыбка
+smoke;дым
+smooth;
+snack;
+snake;змея
+snap;
+sniff;
+snow;снег
+soap;мыло
+soccer;
+social;социальное
+sock;носок
+soda;сода
+soft;мягкий
+solar;солнечный
+soldier;солдат
+solid;твердый
+solution;
+solve;
+someone;
+song;песня
+soon;скоро
+sorry;простите
+sort;сортировать
+soul;душа
+sound;звук
+soup;суп
+source;источник
+south;юг
+space;космос
+spare;запасной
+spatial;пространственный
+spawn;
+speak;разговаривать
+special;особый
+speed;скорость
+spell;заклинание
+spend;
+sphere;сфера
+spice;специя
+spider;паук
+spike;
+spin;
+spirit;дух
+split;расколоть
+spoil;портиться
+sponsor;спонсор
+spoon;
+sport;спорт
+spot;пятно
+spray;спрей
+spread;
+spring;весна
+spy;шпион
+square;квадрат
+squeeze;
+squirrel;белка
+stable;стабильный
+stadium;стадион
+staff;персонал
+stage;
+stairs;лестница
+stamp;
+stand;стоять
+start;начало
+state;штат
+stay;остаться
+steak;стейк
+steel;
+stem;
+step;шаг
+stereo;стерео
+stick;палка
+still;
+sting;жало
+stock;запас
+stomach;желудок
+stone;
+stool;табуретка
+story;история
+stove;
+strategy;стратегия
+street;
+strike;забастовка
+strong;сильный
+struggle;
+student;ученик
+stuff;
+stumble;спотыкаться
+style;стиль
+subject;тема
+submit;
+subway;подземка
+success;успех
+such;такой
+sudden;внезапный
+suffer;
+sugar;сахар
+suggest;
+suit;подходить
+summer;лето
+sun;солнце
+sunny;
+sunset;
+super;супер
+supply;поставлять
+supreme;верховный
+sure;
+surface;поверхность
+surge;всплеск
+surprise;сюрприз
+surround;окружать
+survey;
+suspect;подозревать
+sustain;
+swallow;
+swamp;болото
+swap;
+swarm;
+swear;ругаться
+sweet;сладкий
+swift;
+swim;
+swing;
+switch;выключатель
+sword;меч
+symbol;
+symptom;симптом
+syrup;сироп
+system;система
+table;таблица
+tackle;
+tag;
+tail;хвост
+talent;талант
+talk;
+tank;бак
+tape;
+target;
+task;задача
+taste;вкус
+tattoo;тату
+taxi;такси
+teach;
+team;команда
+tell;рассказать
+ten;десять
+tenant;жилец
+tennis;теннис
+tent;палатка
+term;срок
+test;
+text;текст
+thank;благодарить
+that;тот
+theme;
+then;
+theory;теория
+there;там
+they;они
+thing;предмет
+this;это
+thought;мысль
+three;три
+thrive;
+throw;бросать
+thumb;
+thunder;гром
+ticket;билет
+tide;
+tiger;тигр
+tilt;
+timber;
+time;время
+tiny;крошечный
+tip;
+tired;усталый
+tissue;
+title;заглавие
+toast;тост
+tobacco;табак
+today;сегодня
+toddler;
+toe;
+together;вместе
+toilet;туалет
+token;жетон
+tomato;помидор
+tomorrow;завтра
+tone;тон
+tongue;
+tonight;
+tool;инструмент
+tooth;зуб
+top;
+topic;
+topple;
+torch;факел
+tornado;торнадо
+tortoise;
+toss;
+total;
+tourist;турист
+toward;
+tower;башня
+town;городок
+toy;
+track;отслеживать
+trade;торговля
+traffic;трафик
+tragic;трагический
+train;тренироваться
+transfer;
+trap;ловушка
+trash;мусор
+travel;путешествовать
+tray;лоток
+treat;
+tree;
+trend;тренд
+trial;пробный
+tribe;племя
+trick;
+trigger;триггер
+trim;
+trip;
+trophy;трофей
+trouble;беда
+truck;
+true;истинный
+truly;
+trumpet;
+trust;доверять
+truth;правда
+try;пытаться
+tube;
+tuition;
+tumble;кувыркаться
+tuna;тунец
+tunnel;туннель
+turkey;индюк
+turn;перемена
+turtle;черепаха
+twelve;двенадцать
+twenty;двадцать
+twice;дважды
+twin;близнец
+twist;крутить
+two;два
+type;тип
+typical;типичный
+ugly;уродливый
+umbrella;зонтик
+unable;
+unaware;
+uncle;дядя
+uncover;
+under;под
+undo;
+unfair;несправедливый
+unfold;
+unhappy;несчастный
+uniform;
+unique;уникальный
+unit;
+universe;вселенная
+unknown;неизвестный
+unlock;разблокировать
+until;
+unusual;необычный
+unveil;
+update;
+upgrade;
+uphold;
+upon;
+upper;верхний
+upset;
+urban;городской
+urge;
+usage;использование
+use;использовать
+used;использовал
+useful;полезный
+useless;бесполезный
+usual;
+utility;утилита
+vacant;вакантный
+vacuum;вакуум
+vague;
+valid;действительный
+valley;долина
+valve;клапан
+van;фургон
+vanish;
+vapor;
+various;разные
+vast;
+vault;свод
+vehicle;
+velvet;бархат
+vendor;
+venture;
+venue;
+verb;глагол
+verify;
+version;версия
+very;очень
+vessel;судно
+veteran;ветеран
+viable;жизнеспособный
+vibrant;
+vicious;
+victory;победа
+video;видео
+view;
+village;деревня
+vintage;винтаж
+violin;скрипка
+virtual;виртуальный
+virus;вирус
+visa;виза
+visit;посещать
+visual;визуальный
+vital;
+vivid;
+vocal;
+voice;голос
+void;
+volcano;вулкан
+volume;объем
+vote;голосование
+voyage;
+wage;
+wagon;
+wait;ждать
+walk;ходить
+wall;стена
+walnut;
+want;
+warfare;
+warm;теплый
+warrior;воин
+wash;стирать
+wasp;оса
+waste;
+water;воды
+wave;волна
+way;способ
+wealth;богатство
+weapon;оружие
+wear;носить
+weasel;ласка
+weather;погода
+web;
+wedding;свадьба
+weekend;
+weird;
+welcome;
+west;запад
+wet;влажный
+whale;кит
+what;
+wheat;пшеница
+wheel;
+when;когда
+where;куда
+whip;хлыст
+whisper;шепот
+wide;широкий
+width;ширина
+wife;жена
+wild;дикий
+will;воля
+win;победить
+window;окно
+wine;вино
+wing;крыло
+wink;подмигивание
+winner;победитель
+winter;зима
+wire;проволока
+wisdom;мудрость
+wise;мудрый
+wish;желание
+witness;свидетель
+wolf;волк
+woman;женщина
+wonder;
+wood;дерево
+wool;шерсть
+word;слово
+work;работа
+world;мир
+worry;волноваться
+worth;
+wrap;
+wreck;
+wrestle;
+wrist;запястье
+write;писать
+wrong;неправильный
+yard;двор
+year;год
+yellow;желтый
+you;ты
+young;молодой
+youth;
+zebra;зебра
+zero;нуль
+zone;зона
+zoo;зоопарк
+</script>
+
+
+<!-- eng;rus
+Hello;Привет
+Something;
+Goodbye;До свидания
+Ball;
+Yes;Да -->
+
+
+
+
+    <style>
+        .comboBoxContainer select {
+            margin-top: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .lastComboBox {
+            /* задаем особый цвет для последнего заполняемого comboBox */
+            background-color: rgb(146, 235, 161); 
+        }
+    </style>
+
+
+
+
+
+    <div id="comboBoxContainer" class="comboBoxContainer"></div>
+
+    <script>
+        // Блок для отображения 12-24 выпадающих списков        
+        const comboBoxContainer = document.getElementById('comboBoxContainer');
+
+        // Выбранный язык по умолчанию
+        let curLanguage = 'English';
+        let curLanguageIndex = 0;
+
+        // Массив-словарь слов SEED, исходный со всеми языками
+        let csvDataArray = [];
+        // Массив-словарь слов SEED, упорядоченный по алфавиту выбранного языка
+        let curDataSet = [];
+
+        // Количество слов (по умолчанию) в списке
+        let seedWordCountTotal = 12; 
+        // Количество заполненных слов в SEED фразы
+        let seedWordCountFilled = 0;
+        // ID выбранных слов SEED
+        let seedSelectedWordId = [];
+        // индекс последнего выбираемого слова SEED фразы
+        let seedLastWordIndex  = -1;
+
+        // Слушатель события изменения языка
+        const languageSelector = document.querySelector('select[name="languageSelector"]');
+        languageSelector.addEventListener("change", handleLanguageChange);   
+ 
+        // Собираю список языков в Map
+        let languageMap = new Map();
+        for (let i = 0; i < languageSelector.options.length; i++) {
+            languageMap.set(languageSelector.options[i].value, i);
+        }
+
+        // Слушатель события изменения количества слов
+        const wordCountRadios = document.querySelectorAll('input[name="wordCount"]');
+        wordCountRadios.forEach(radio => {
+            radio.addEventListener('change', handleWordCountChange);
+        });
+                       
+        // Обработчик события изменения количества слов
+        async function handleWordCountChange(event) {
+            seedWordCountTotal = event.target.value;
+            await calcCountFilledWords();
+            await generateComboBoxes();  
+        }
+
+        // Обработчик события изменения языка
+        async function handleLanguageChange(event) {
+            curLanguageIndex = languageSelector.selectedIndex;
+            curLanguage = languageSelector.options[curLanguageIndex].textContent;
+            curDataSetReCalc();
+            await calcCountFilledWords();
+            await generateComboBoxes();
+        }
+         
+        // Наполняю curDataSet словами из выбранного языка
+        // и упорядочиваю по алфавиту
+        function curDataSetReCalc() {
+            // Множество M первых элементов массива seedSelectedWordId 
+            let setSeedSelectedWordId = new Set(seedSelectedWordId.slice(0, seedWordCountTotal));
+            // Наполняю curDataSet словами из выбранного языка
+            curDataSet = [];
+            for (let id=0; id<csvDataArray.length; id++) {
+                let word  = csvDataArray[id][curLanguageIndex];
+                let title = csvDataArray[id][curLanguageIndex];
+                // Присваиваю is_green значения true или false случайным образом
+                // let is_green = (Math.random() >= 0.5);
+                let is_green = false;
+                if (curLanguageIndex>0)
+                    title = title + ' - ' + csvDataArray[id][0];
+                if ((setSeedSelectedWordId.has(id)) || (word != ''))
+                    curDataSet.push([id, title, word, is_green]);
+                const isContained = setSeedSelectedWordId.has(id);
+            }
+            // Сортирую curDataSet по значению второй колонки
+            curDataSet.sort(function(a, b) { return a[2] > b[2] ? 1 : -1; });
+        }
+
+        // Определяет, какие из слов словаря могут быть использованы
+        // в качестве последнего незаполненного слова SEED фразы
+        async function curDataSetReCalcGreen() {
+            if (seedLastWordIndex==-1) {
+                return;
+            }
+
+            // Заношу ID уже известных выбранных слов
+            let seedCandidateArrayId = new Array(seedWordCountTotal);
+            for (let i=0; i<seedWordCountTotal; i++) {
+                seedCandidateArrayId[i] = seedSelectedWordId[i];
+            }
+
+            const promises = curDataSet.map(arrayElement => processValidateSHA256(arrayElement, seedCandidateArrayId));
+            let validationRes = await Promise.all(promises);
+        }
+
+        async function processValidateSHA256(arrayElement, seedCandidateArrayId) {
+            const seedCandidateArrayIdCopy = [...seedCandidateArrayId];
+            seedCandidateArrayIdCopy[seedLastWordIndex] = arrayElement[0];
+            let resBool = await isValidSeedSHA256(seedCandidateArrayIdCopy);
+            arrayElement[3] = resBool;
+            return resBool; // Возвращаем промис с обновленным элементом массива
+        }
+
+        // Проверяя получивщуюся полную фразу на корректность SHA256 хэша
+        async function isValidSeedSHA256(seedCandidateArrayId) {            
+            // Считаю количество переданных слов SEED фразы
+            let words_count = seedCandidateArrayId.length;
+            // Считаю ДРОБНОЕ кол-во байтов вмещающих всю инфу СИД-фразы
+            let bites_count_total = (11 * words_count) / 8;
+            // ЦЕЛОЕ кол-во БИТОВ для расчёта хэша
+            bits_count_for_calc = Math.floor(bites_count_total - 0.0001) * 8;
+            // ЦЕЛОЕ кол-во БИТОВ для сравниваемях первых битов хэша
+            bits_count_for_hash = Math.round((bites_count_total - Math.floor(bites_count_total - 0.0001)) * 8);
+
+            // Выделение памяти для байтовых данных
+            arrayLength = Math.round(bits_count_for_calc / 8);
+            BinaryData = new Uint8Array(arrayLength);
+
+            // Делаю из массива ID SEED длинную строку вида 001110101011110101000001001101101011010010111.....
+            let BinaryStr = '';
+            for (let i = 0; i < words_count; i++) {
+                BinaryStr += IntToBin(seedCandidateArrayId[i], 11);
+            }
+
+            // Пересобираю биты из String001010101.. в TBytes
+            s8 = '';
+            for (n = 0; n < BinaryStr.length; n++) {
+                s8 += BinaryStr[n];
+                if (s8.length === 8) {
+                    Q = 0;
+                    for (k = 0; k < 8; k++) {
+                        Q = Q * 2 + parseInt(s8[k]);
+                    }
+                    BinaryData[Math.floor((n - 7) / 8)] = Q;
+                    s8 = '';
+                }
+            }
+
+            // Расчёт хэша SHA-256
+            let heshSHA256 = await calculateSHA256(BinaryData); 
+            // Берём первые X битов хэша, в виде целого десятичного числа
+            let firstXBitsSHA256 = getFirstXBitsFromUint8Array(heshSHA256, bits_count_for_hash);
+            
+            // Беру нужное количество последних битов строки 0100010101....
+            let sEndOriginBinaryStr = BinaryStr.substring(bits_count_for_calc, bits_count_for_calc + bits_count_for_hash);
+            // Также перевожу эту строку нулей и единиц в целое десятичное число
+            let lastSeedBits = BinToInt(sEndOriginBinaryStr);
+
+            // Если они совпадают, то SEED рабочий
+            res = (firstXBitsSHA256 === lastSeedBits);
+
+            // console.log('words_count = ' + words_count);
+            // console.log('bites_count_total = ' + bites_count_total);
+            // console.log('bits_count_for_calc = ' + bits_count_for_calc);
+            // console.log('bits_count_for_hash = ' + bits_count_for_hash);
+
+            // console.log("seedCandidateArrayId[0]=", seedCandidateArrayId[0]);
+
+            // if (seedCandidateArrayId[0]<50)
+            // {
+            //     console.log("seedCandidateArrayId=",seedCandidateArrayId);
+
+            //     console.log("BinaryStr=",BinaryStr);
+            //     console.log("BinaryData=",BinaryData);
+
+            //     console.log("heshSHA256=",heshSHA256);
+            //     console.log("firstXBitsSHA256=",firstXBitsSHA256);
+                
+            //     console.log("sEndOriginBinaryStr=",sEndOriginBinaryStr);
+            //     console.log("lastSeedBits=",lastSeedBits);
+
+            //     console.log("res=",res);
+            // }
+
+            return res;
+            // return false;
+        }
+
+        async function test() {
+            const data1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4]; 
+            let bb = await isValidSeedSHA256(data1)
+            console.log(bb);
+        }
+            
+        // Вспомогательная функция для преобразования целого десятичного числа
+        // в двоичное число, записанное строкой заданной длины
+        function IntToBin(Value, Digits) {
+            let result = '';
+            while (Value > 0) {
+                result = (Value % 2) + result;
+                Value = Math.floor(Value / 2);
+            }
+            while (result.length < Digits) {
+                result = '0' + result;
+            }
+            return result;
+        }
+
+        // Вспомогательная функция для преобразования двоичного числа, 
+        // записанного строкой, в целое десятичное число
+        function BinToInt(BinaryStr) {
+            let result = 0;
+            const length = BinaryStr.length;
+            
+            for (let i = 0; i < length; i++) {
+                const bit = parseInt(BinaryStr[i]);
+                result = result * 2 + bit;
+            }
+            
+            return result;
+        }
+
+        // Заполняю значениями один комбо-бокс
+        function fillComboBox(comboBox, isLastWord) {
+            // Добавляем пустую опцию
+            const emptyOption = document.createElement('option');
+            emptyOption.value = -1;
+            emptyOption.text  = '';
+            comboBox.appendChild(emptyOption);
+            // Добавляю опции из текущего словаря
+            curDataSet.forEach(option => {
+                const optionElement = document.createElement('option');
+                optionElement.text = option[1];
+                optionElement.value = parseInt(option[0]);
+                // но только в случае если это не последнее слово
+                // или если это последнее слово, но оно уже допустимо
+                if ((isLastWord==false)||(option[3]==true))
+                    comboBox.appendChild(optionElement);
+            });
+        }
+
+        // Генерирую комбо-боксы
+        function generateComboBoxes() {
+            comboBoxContainer.innerHTML = '';
+            for (let i = 0; i <= seedWordCountTotal-1; i++) {
+                const comboBox = document.createElement('select');
+                comboBox.name = 'comboBox' + i;
+                // Если это последнее незаполненное слово, то окрашиваю его
+                isLastWord = (i==seedLastWordIndex);
+                if (isLastWord)
+                {
+                    comboBox.style.color = 'green';
+                    comboBox.addEventListener("change", handleComboBoxChangeLast);
+                }
+                else
+                {
+                    comboBox.addEventListener("change", handleComboBoxChangeNormal);
+                }
+                //seedLastWordIndex
+                comboBoxContainer.appendChild(comboBox);
+                // Заполняю комбо-бокс словами текущего словаря
+                fillComboBox(comboBox, isLastWord);
+                // выбираю по умолчанию элемент списка, соответствующий последнему выбранному пользователем по ID слова
+                // comboBox.selectedIndex = findWordIndexById(seedSelectedWordId[i]);
+                comboBox.selectedIndex = findWordIndexById2(comboBox, seedSelectedWordId[i]);
+            }
+        }
+                        
+        // Нахожу индекс слова по его ID
+        function findWordIndexById2(comboBox, id) {            
+            res = 0;
+            for (let i=1; i<=comboBox.length-1; i++)
+                if (parseInt(comboBox.options[i].value) == id)
+                    res = i;
+            return res;
+        }
+                
+        // Нахожу индекс слова по его ID
+        function findWordIndexById(id) {            
+            res = 0;
+            for (let i=0; i<=curDataSet.length-1; i++)
+                if (curDataSet != undefined)
+                      if (curDataSet[i][0] == id)
+                          res = i+1;
+            return res;
+        }
+
+        // Обработчик события изменения одного слова SEED в КомбоБоксе
+        async function handleComboBoxChangeNormal(event) {
+            const comboBox = event.target;
+            const comboBoxIndex = comboBox.selectedIndex;
+            const comboBoxValue = comboBox.options[comboBoxIndex].value;
+            const comboBoxText = comboBox.options[comboBoxIndex].text;
+            const comboBoxNumber = comboBox.name.replace('comboBox', '');
+            seedSelectedWordId[comboBoxNumber] = parseInt(comboBoxValue);
+            if (await calcCountFilledWords())
+            {
+                generateComboBoxes();
+            }
+        }
+        
+        // Считаю количество заполненных слов
+        // Возвращет TRUE если необходимо перерисовать комбо-боксы
+        async function calcCountFilledWords() {
+            let OLD_seedLastWordIndex = seedLastWordIndex;
+            seedWordCountFilled = 0;
+
+            // Считаю в цикле количество заполненных слов
+            // Заодно пытаюсь установить индекс незаполненного слова
+            for (let i=0; i<=seedWordCountTotal-1; i++)
+            {
+                if (seedSelectedWordId[i] != -1) 
+                    seedWordCountFilled++;
+                else
+                    candidateLastWordIndex = i;
+            }
+
+            // Если НЕ заполнено более одного слова, то место последнего слова пока неизвестно
+            if (seedWordCountFilled < seedWordCountTotal-1)
+            {
+                seedLastWordIndex = -1;
+            }            
+
+            // Если заполнены все КРОМЕ одного слова
+            if (seedWordCountFilled == seedWordCountTotal-1)
+            {
+                seedLastWordIndex = candidateLastWordIndex;
+            }
+
+            // Если ВСЕ слова заполнены
+            if (seedWordCountFilled == seedWordCountTotal)
+            {
+                // и при этом индекс последнего(зелёного) слова неизвестен
+                if (seedLastWordIndex == -1)
+                    seedLastWordIndex = seedWordCountTotal-1;
+            }
+
+            // На случай, если уменьшили кол-во слов в SEED
+            if (seedLastWordIndex > seedWordCountTotal-1)
+                seedLastWordIndex = seedWordCountTotal-1;
+
+            // Определился ли НОВЫЙ индекс последнего(зелёного) слова?
+            let isNewIndexLastWord = (seedLastWordIndex != OLD_seedLastWordIndex);
+            let isNeedRedrawAllComboboxes = ((isNewIndexLastWord) || (seedLastWordIndex != -1));
+
+            // Если изменился индекс последнего(зелёного) слова, то очищаю выбор последнего слова
+            if (isNewIndexLastWord == true)
+                seedSelectedWordId[seedLastWordIndex] = -1;
+
+            await curDataSetReCalcGreen();
+            return (isNeedRedrawAllComboboxes);
+        }
+                
+        // Обработчик события изменения последнего слова SEED в КомбоБоксе
+        function handleComboBoxChangeLast(event) {
+            // seedLastWordIndex  = -1;  неправильно удали
+            const comboBox = event.target;
+            const comboBoxIndex = comboBox.selectedIndex;
+            const comboBoxValue = comboBox.options[comboBoxIndex].value;
+            const comboBoxNumber = comboBox.name.replace('comboBox', '');
+            seedSelectedWordId[comboBoxNumber] = parseInt(comboBoxValue);
+        }
+    
+        // Загружаю CSV данные из этого файла
+        function loadCSVfromThisHtml() {
+            const csvScript = document.getElementById("data");
+            const csvContent = csvScript.textContent;
+            return csvContent;
+        }
+
+        // Загружаю CSV данные из внешнего CSV файла
+        function loadCSVfromFile(file) {
+            return new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', file, true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4) {
+                        if (xhr.status === 200) {
+                            resolve(xhr.responseText);
+                        } else {
+                            reject(xhr.statusText);
+                        }
+                    }
+                };
+                xhr.send();
+            });
+        }
+
+        // Парсинг данных из CSV файла в массив
+        function parseCSVData(csvData) {
+            const rows = csvData.split('\n');
+            const data = [];
+            rows.forEach(row => {
+                const columns = row.split(';');
+                const rowData = [columns[0], columns[1]];
+                if (columns[0].trim() != '')
+                    data.push(rowData);
+            });
+            return data;
+        }
+
+        // Хэш функция SHA256
+        async function calculateSHA256(data) {
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);  
+            const hashArray = new Uint8Array(hashBuffer);
+            return hashArray;
+        }
+
+        // Функция которая берёт первые X битов входящего аргумента Uint8Array, и конвертирует его их в десятичное число
+        function getFirstXBitsFromUint8Array(data, x) {
+            let res = 0;
+            let bitIndex = 0;
+            for (let i = 0; i < data.length; i++) {
+                const byte = data[i];
+                for (let j = 7; j >= 0; j--) {
+                if (bitIndex >= x) {
+                    return res;
+                }
+                const bit = (byte >> j) & 1;
+                res = (res << 1) | bit;
+                bitIndex++;
+                }
+            }
+            return res;
+        }
+
+        // Инициализация страницы. Выполняется при первой загрузке страницы
+        function initialize() {
+            // Создаю и инициализирую массив индексов выбранных слов
+            seedSelectedWordId = new Array(24);
+            for (let i=0; i<24; i++)
+                seedSelectedWordId[i] = -1;
+            // loadCSVFromFile('data.csv').then(data => { csvDataArray = parseCSVData(data);  generateComboBoxes(); }).catch(error => console.error('Ошибка загрузки CSV файла:', error));
+            let ddData = loadCSVfromThisHtml();
+            csvDataArray = parseCSVData(ddData);
+            curDataSetReCalc();
+            handleLanguageChange();
+        }
+
+        // Инициализация страницы
+        initialize();
+    </script>
+</body>
+</html>
