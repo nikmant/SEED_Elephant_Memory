@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
     <title>SEED Elephant Memory</title>
 </head>
 <body>
     <h1>SEED Elephant Memory!</h1>
 
     <form>
-
-        <!-- <button type="button" onclick="test()">test</button> -->
 
         <label>
             Words count:
@@ -21,6 +20,7 @@
 
         <br>
         <br>
+        
         <label>
             Language:
             <select name="languageSelector">
@@ -28,11 +28,63 @@
                 <option value="russian">Русский</option>
                 <option value="french">French</option>
             </select>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Word end:
+            <input type="text" id="searchWordEnd" name="searchWordEnd" onchange="delayedFilterWordEnd()">
         </label>
 
         <br>
 
+        <div id="comboBoxContainer" class="comboBoxContainer">            
+        </div>
+
+        <br>
+        
+        <label>
+            Valid SEED:
+            <textarea id="MemoValidSEED" rows="6" readonly>            
+            </textarea>
+        </label>
+
+        <br><br>
+        <div id="labelAbout">            
+        </div>
+
     </form>
+
+
+    <style>
+        .comboBoxContainer select {
+            margin-top: 10px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .lastComboBox {
+            /* задаем особый цвет для последнего заполняемого comboBox */
+            background-color: rgb(146, 235, 161); 
+        }
+        #MemoValidSEED {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        #labelAbout {
+            white-space: pre-line;
+        }
+        #searchWordEnd {
+            width: 45px;
+        }
+        /* Mobile-specific styles */
+        @media only screen and (max-width: 480px) {
+        h1 {
+            font-size: 24px;
+        }
+        form {
+            margin-top: 20px;
+        }
+        #searchWordEnd {
+            width: 70px;
+        }
+    }
+    </style>
 
 
 
@@ -2098,27 +2150,11 @@ Yes;Да -->
 
 
 
-    <style>
-        .comboBoxContainer select {
-            margin-top: 10px;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        .lastComboBox {
-            /* задаем особый цвет для последнего заполняемого comboBox */
-            background-color: rgb(146, 235, 161); 
-        }
-    </style>
-
-
-
-
-
-    <div id="comboBoxContainer" class="comboBoxContainer"></div>
-
     <script>
         // Блок для отображения 12-24 выпадающих списков        
         const comboBoxContainer = document.getElementById('comboBoxContainer');
+        const memoValidSEED = document.getElementById('MemoValidSEED');  
+        const searchWordEnd = document.getElementById('searchWordEnd');  
 
         // Выбранный язык по умолчанию
         let curLanguage = 'English';
@@ -2137,6 +2173,11 @@ Yes;Да -->
         let seedSelectedWordId = [];
         // индекс последнего выбираемого слова SEED фразы
         let seedLastWordIndex  = -1;
+        // Глобальная переменная для хранения идентификатора таймера фильтра
+        let timeoutId; 
+        // Окончание слова
+        let wordEnd = "";
+
 
         // Слушатель события изменения языка
         const languageSelector = document.querySelector('select[name="languageSelector"]');
@@ -2161,15 +2202,42 @@ Yes;Да -->
             await generateComboBoxes();  
         }
 
+        // Вывожу на экран валидную SEED фразу
+        async function DisplayValidSEED() {
+            memoValidSEED.value = '';
+            seedWordCountFilled = 0;
+            for (let i=0; i<=seedWordCountTotal-1; i++)
+                if (seedSelectedWordId[i] != -1) 
+                    seedWordCountFilled++;
+            if (seedWordCountFilled==seedWordCountTotal)
+                memoValidSEED.value = seedSelectedWordId.slice(0, seedWordCountTotal).map(id => findWordById(id)).join(' ');
+        }
+
         // Обработчик события изменения языка
         async function handleLanguageChange(event) {
+            searchWordEnd.value = "";
+            wordEnd = "";
+            filterWordEnd();
+        }
+
+        function delayedFilterWordEnd() {
+            // Очищаем предыдущий таймер, чтобы предотвратить его выполнение
+            clearTimeout(timeoutId); 
+            // Запускаем новый таймер, который вызовет функцию filterWordEnd через 300 миллисекунд
+            timeoutId = setTimeout(filterWordEnd, 350);
+        }
+                 
+        // Фильтрация слов с нужным окончанием
+        async function filterWordEnd() {
+            wordEnd = searchWordEnd.value;
             curLanguageIndex = languageSelector.selectedIndex;
             curLanguage = languageSelector.options[curLanguageIndex].textContent;
+            about();
             curDataSetReCalc();
             await calcCountFilledWords();
             await generateComboBoxes();
         }
-         
+
         // Наполняю curDataSet словами из выбранного языка
         // и упорядочиваю по алфавиту
         function curDataSetReCalc() {
@@ -2185,9 +2253,11 @@ Yes;Да -->
                 let is_green = false;
                 if (curLanguageIndex>0)
                     title = title + ' - ' + csvDataArray[id][0];
-                if ((setSeedSelectedWordId.has(id)) || (word != ''))
+                // Сохраняю в переменную goodEnd признак, что последние символы word равны wordEnd
+                let goodEnd = (wordEnd.length==0) || (wordEnd.length<=word.length && word.slice(-wordEnd.length)==wordEnd);
+                // Если слово уже выбрано, или (слово не пустое и окончание слова хорошее)
+                if ((setSeedSelectedWordId.has(id)) || ((word != '')&&(goodEnd)))
                     curDataSet.push([id, title, word, is_green]);
-                const isContained = setSeedSelectedWordId.has(id);
             }
             // Сортирую curDataSet по значению второй колонки
             curDataSet.sort(function(a, b) { return a[2] > b[2] ? 1 : -1; });
@@ -2210,12 +2280,21 @@ Yes;Да -->
             let validationRes = await Promise.all(promises);
         }
 
+        // Проставляю true или false в четвёртом столбце массива
+        // Это будет определять, можно ли использовать такое слово в 
+        // качестве последнего(зелёного) незаполненного слова SEED фразы
         async function processValidateSHA256(arrayElement, seedCandidateArrayId) {
+            // Делаю копию массива, так как он будет меняться в параллельных процессах
             const seedCandidateArrayIdCopy = [...seedCandidateArrayId];
+            // Заполняю ID последнего незаполненное слова ID seed фразы
+            // из ID переданного arrayElement (куда передаются все 2048 слов по очереди)
             seedCandidateArrayIdCopy[seedLastWordIndex] = arrayElement[0];
+            // Проверяя получивщуюся полную фразу на корректность SHA256 хэша
             let resBool = await isValidSeedSHA256(seedCandidateArrayIdCopy);
+            // записываю результат проверки
             arrayElement[3] = resBool;
-            return resBool; // Возвращаем промис с обновленным элементом массива
+             // Возвращаю promise
+            return resBool;
         }
 
         // Проверяя получивщуюся полную фразу на корректность SHA256 хэша
@@ -2266,39 +2345,9 @@ Yes;Да -->
             // Если они совпадают, то SEED рабочий
             res = (firstXBitsSHA256 === lastSeedBits);
 
-            // console.log('words_count = ' + words_count);
-            // console.log('bites_count_total = ' + bites_count_total);
-            // console.log('bits_count_for_calc = ' + bits_count_for_calc);
-            // console.log('bits_count_for_hash = ' + bits_count_for_hash);
-
-            // console.log("seedCandidateArrayId[0]=", seedCandidateArrayId[0]);
-
-            // if (seedCandidateArrayId[0]<50)
-            // {
-            //     console.log("seedCandidateArrayId=",seedCandidateArrayId);
-
-            //     console.log("BinaryStr=",BinaryStr);
-            //     console.log("BinaryData=",BinaryData);
-
-            //     console.log("heshSHA256=",heshSHA256);
-            //     console.log("firstXBitsSHA256=",firstXBitsSHA256);
-                
-            //     console.log("sEndOriginBinaryStr=",sEndOriginBinaryStr);
-            //     console.log("lastSeedBits=",lastSeedBits);
-
-            //     console.log("res=",res);
-            // }
-
             return res;
-            // return false;
         }
-
-        async function test() {
-            const data1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4]; 
-            let bb = await isValidSeedSHA256(data1)
-            console.log(bb);
-        }
-            
+           
         // Вспомогательная функция для преобразования целого десятичного числа
         // в двоичное число, записанное строкой заданной длины
         function IntToBin(Value, Digits) {
@@ -2382,13 +2431,12 @@ Yes;Да -->
             return res;
         }
                 
-        // Нахожу индекс слова по его ID
-        function findWordIndexById(id) {            
-            res = 0;
+        // Нахожу слово по его ID
+        function findWordById(id) {  
             for (let i=0; i<=curDataSet.length-1; i++)
                 if (curDataSet != undefined)
                       if (curDataSet[i][0] == id)
-                          res = i+1;
+                          res = curDataSet[i][1];
             return res;
         }
 
@@ -2466,6 +2514,7 @@ Yes;Да -->
             const comboBoxValue = comboBox.options[comboBoxIndex].value;
             const comboBoxNumber = comboBox.name.replace('comboBox', '');
             seedSelectedWordId[comboBoxNumber] = parseInt(comboBoxValue);
+            DisplayValidSEED();
         }
     
         // Загружаю CSV данные из этого файла
@@ -2530,6 +2579,54 @@ Yes;Да -->
             }
             return res;
         }
+        
+        // О программе
+        function about() {
+            if (languageSelector.value == 'english')                
+                labelAbout.textContent = 
+                "This page is a tool for manually creating a memorable SEED phrase to memorize it by heart."+"\n\n"+
+
+                "With this tool, you can even create a rhyme for your SEED phrase to enhance memorization. "+
+                "Rhyming is effective when adjacent lines end with words having the same endings. To find "+
+                "such words, enter the word ending in the filter box for word endings."+"\n\n"+
+
+                "It is highly recommended to use this page offline only! It is advised to use it on a mobile "+
+                "device that will never be connected to the network again. Alternatively, you can reset the "+
+                "device to its factory settings. It is optimal to use an old, unnecessary smartphone."+"\n\n"+
+
+                "Do not create simple and obvious word combinations! For example, "+
+                "using consecutive words is a guaranteed way to lose your crypto assets."+"\n\n"+
+
+                "Thanks for the inspiration my friend Ivan: https://www.youtube.com/@crypto_inside"+"\n\n"+
+
+                "My Telegram: https://t.me/nik_mant"+"\n"+
+                "My GitHub: https://github.com/nikmant/SEED_Elephant_Memory"+"\n\n"+
+                "Version from 2023-06-20";
+
+            if (languageSelector.value == 'russian')                
+                labelAbout.textContent = 
+                "Данная страница – инструмент для ручного создания запоминающейся SEED фразы, чтобы заучить свою фразу наизусть."+"\n\n"+
+
+                "С помощью этого инструмента вы можете даже зарифмовать SEED фразу для лучшего запоминания. Рифма хороша, когда "+
+                "соседние строки заканчиваются на слова с одинаковыми окончаниями. Чтобы найти такие слова, задайте окончание слова в окошке фильтра "+
+                "по окончанию слова."+"\n\n"+
+
+                "Крайне рекомендуется пользоваться страничкой только оффлайн! "+
+                "Рекомендуется использовать на мобильном устройстве, который "+
+                "никогда после этого не будет подключаться к сети. Либо "+
+                "будет сброшен до заводских настроек. Оптимально использовать "+
+                "старый ненужный смартфон."+"\n\n"+
+
+                "Не составляйте простых очевидных наборов слов! "+
+                "Например, использование идущих подряд слов - это "+
+                "гарантированный шанс потерять ваши крипто активы."+"\n\n"+
+
+                "Спасибо моему другу Ивану за крипто-вдохновение: https://www.youtube.com/@crypto_inside"+"\n\n"+
+
+                "Мой Телеграм: https://t.me/nik_mant"+"\n"+
+                "Мой GitHub: https://github.com/nikmant/SEED_Elephant_Memory"+"\n\n"+
+                "Версия от: 2023-06-20";
+        }
 
         // Инициализация страницы. Выполняется при первой загрузке страницы
         function initialize() {
@@ -2542,6 +2639,7 @@ Yes;Да -->
             csvDataArray = parseCSVData(ddData);
             curDataSetReCalc();
             handleLanguageChange();
+            about();
         }
 
         // Инициализация страницы
