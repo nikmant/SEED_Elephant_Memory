@@ -26,7 +26,6 @@
             <select name="languageSelector">
                 <option value="english" selected>English</option>
                 <option value="russian">Русский</option>
-                <option value="french">French</option>
             </select>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Word end:
             <input type="text" id="searchWordEnd" name="searchWordEnd" onchange="delayedFilterWordEnd()">
@@ -230,7 +229,7 @@ bachelor;холостяк
 bacon;бекон
 badge;
 bag;мешок
-balance;
+balance;баланс
 balcony;балкон
 ball;мяч
 bamboo;бамбук
@@ -2586,6 +2585,7 @@ Yes;Да -->
                 labelAbout.textContent = 
                 "This page is a tool for manually creating a memorable SEED phrase to memorize it by heart."+"\n\n"+
 
+                "The program will help you choose the last word of the phrase so that the SHA256 checksum of the phrase is correct"+"\n"+
                 "With this tool, you can even create a rhyme for your SEED phrase to enhance memorization. "+
                 "Rhyming is effective when adjacent lines end with words having the same endings. To find "+
                 "such words, enter the word ending in the filter box for word endings."+"\n\n"+
@@ -2603,10 +2603,11 @@ Yes;Да -->
                 "My GitHub: https://github.com/nikmant/SEED_Elephant_Memory"+"\n\n"+
                 "Version from 2023-06-20";
 
-            if (languageSelector.value == 'russian')                
+            if (languageSelector.value == 'russian')
                 labelAbout.textContent = 
                 "Данная страница – инструмент для ручного создания запоминающейся SEED фразы, чтобы заучить свою фразу наизусть."+"\n\n"+
 
+                "Программа поможет вам подобрать последнее слово фразы таким, чтобы контрольная сумма SHA256 фразы была верной."+"\n"+
                 "С помощью этого инструмента вы можете даже зарифмовать SEED фразу для лучшего запоминания. Рифма хороша, когда "+
                 "соседние строки заканчиваются на слова с одинаковыми окончаниями. Чтобы найти такие слова, задайте окончание слова в окошке фильтра "+
                 "по окончанию слова."+"\n\n"+
